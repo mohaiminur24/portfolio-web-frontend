@@ -1,14 +1,14 @@
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Home Page",
-  description: "Senior Software Engineer",
-};
+"use client";
+import ScreenWrapper from "@/components/screen-wrapper";
+import AppColor from "@/theme/app-colors";
 
 export default function Home() {
+  const { TextColor } = AppColor();
   return (
-    <div>
-      <h1>here is text</h1>
-    </div>
+    <ScreenWrapper>
+      <div>
+        <h1 style={{ color: TextColor.black }}>here is text</h1>
+      </div>
+    </ScreenWrapper>
   );
 }

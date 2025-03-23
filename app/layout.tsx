@@ -1,21 +1,21 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Nunito_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import ReduxProvider from "@/redux/provider";
+import AppColor from "@/theme/app-colors";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-nunito-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-playfair-display",
 });
-
-export const metadata: Metadata = {
-  title: "MohaiMinur",
-  description: "Senior Software Engineer",
-};
 
 export default function RootLayout({
   children,
@@ -25,9 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${nunitoSans.variable} ${playfairDisplay.variable} antialiased`}
       >
-        {children}
+        <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   );
